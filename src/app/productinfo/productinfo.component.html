@@ -8,7 +8,8 @@
         (handleUpdate)="onUpdate($event)" ></app-productdetails>
       </div>
       <div class="col-sm">
-        One of three columns
+        <app-productform *ngIf="selectedProduct && selectedProductForUpdate"  [product]="selectedProductForUpdate"
+        (handleClose)="onUpdateClose($event)"></app-productform>
       </div>
     </div>
   </div>

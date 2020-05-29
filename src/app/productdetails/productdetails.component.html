@@ -2,7 +2,7 @@
     <div class="card-header"> 
         <div class="float-left">
             <button (click)="onClose()">
-                close
+                Add
               </button> 
         </div>
           <div class="float-right">
@@ -14,6 +14,8 @@
        
     </div>
   <div class="card-body">   {{product.name}}</div>
-  <div class="card-footer">Footer</div>
+  <div class="card-footer"> <button (click)="onUpdate()">
+    Edit
+  </button> </div>
   </div>
 
