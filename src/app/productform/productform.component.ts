@@ -1,5 +1,5 @@
-import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
-import { FormControl,FormGroup,FormBuilder,FormArray,Validator, Validators } from "@angular/forms";
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { Product } from '../product';
 
 @Component({
@@ -10,17 +10,30 @@ import { Product } from '../product';
 export class ProductformComponent implements OnInit {
   @Input() product: Product;
   @Output() handleClose = new EventEmitter();
-  user: FormGroup;
-  constructor() { }
+
+  registerForm: FormGroup;
+  submitted= false;
+  constructor(private fb: FormBuilder) { }
+
 
   ngOnInit(): void {
-    this.user = new FormGroup({
-      name: new FormControl(''),
-      account: new FormGroup({
-        email: new FormControl(''),
-        confirm: new FormControl('')
-      })
-    });
+    this.registerForm = this.fb.group({
+      name: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      username: ['', [Validators.required]],
+    }
+    );
   }
+  get registerFormControl() {
+    return this.registerForm.controls;
+  }
+  onSubmit() {
+    this.submitted = true;
+    if (this.registerForm.valid) {
+      alert('Form Submitted succesfully!!!\n Check the values in browser console.');
+      console.table(this.registerForm.value);
+    }
+  }
+ 
 
 }

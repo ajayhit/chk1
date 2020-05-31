@@ -8,6 +8,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProductdetailsComponent } from './productdetails/productdetails.component';
 import { ProductinfoComponent } from './productinfo/productinfo.component';
 import { ProductformComponent } from './productform/productform.component';
+import { ReactiveFormsModule } from  '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ProductformComponent } from './productform/productform.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

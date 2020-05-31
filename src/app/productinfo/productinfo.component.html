@@ -1,18 +1,15 @@
 <div class="container">
     <div class="row">
       <div class="col-sm">
-        <app-productlist [products]="products" (selectionChanged)="handleSelectionChange($event)"></app-productlist>
+        <app-productlist [products]="products" (selectionChanged)="handleSelectionChange($event)">
+        </app-productlist>
       </div>
       <div class="col-sm">
         <app-productdetails *ngIf="selectedProduct" [product]="selectedProduct"  (handleClose)="onClose($event)"
-        (handleUpdate)="onUpdate($event)" ></app-productdetails>
+        (handleUpdate)="onUpdate($event)" (handleAdd)="AddNew()"></app-productdetails>
       </div>
       <div class="col-sm">
-        <app-productform *ngIf="selectedProduct && selectedProductForUpdate"  [product]="selectedProductForUpdate"
-        (handleClose)="onUpdateClose($event)"></app-productform>
+        <app-productform *ngIf="AddProduct" (handleClose)="onClose($event)"></app-productform>
       </div>
     </div>
   </div>
-  
-  
-  

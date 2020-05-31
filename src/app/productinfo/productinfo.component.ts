@@ -9,6 +9,7 @@ import { Product } from '../Product';
 export class ProductinfoComponent implements OnInit {
   @Input() products: Product[];
   selectedProduct: Product;
+  AddProduct: Product;
   selectedProductForUpdate: Product;
 
   constructor() {}
@@ -37,5 +38,9 @@ export class ProductinfoComponent implements OnInit {
 
   onUpdate(product) {
     this.selectedProductForUpdate = product;
+  }
+  AddNew()
+  {
+    this.AddProduct = null;
   }
 }
